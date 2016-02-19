@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "font-awesome-rails"
   s.add_dependency "autoprefixer-rails"
   s.add_dependency "simple_form", "~>3.1.0"
-  s.add_dependency "devise", "~> 3.5"
+  s.add_dependency "devise", "3.5.1"
   s.add_dependency "pygments.rb"
   s.add_dependency "redcarpet"
 
