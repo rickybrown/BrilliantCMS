@@ -1,5 +1,7 @@
 module BrilliantCms
   class Entry < ActiveRecord::Base
+    include BrilliantCms::Concerns::Searchable
+    
     scope :published, -> { where('published_at <= ?', Time.zone.now) }
 
     def self.content_attr(attr_name, attr_type = :string)

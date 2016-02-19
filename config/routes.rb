@@ -7,6 +7,7 @@ end
 BrilliantCms::Engine.routes.draw do
 
   scope "/:content_class" do
+    get 'search', to: 'entries#search', as: :search
     resources :entries
   end
 

@@ -8,6 +8,11 @@ module BrilliantCms
       @entries = Entry.where(type: content_class)
     end
 
+    def search
+      @entries = Entry.where(type: content_class).search(params[:query])
+      render action: 'index'
+    end
+
     def show
     end
 

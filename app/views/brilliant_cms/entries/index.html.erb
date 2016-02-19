@@ -3,6 +3,12 @@
 
 <%= link_to "New #{content_class.titleize}", new_content_entry_path, class: 'btn btn-primary space-2' %>
 
+<p>
+<%= form_tag(search_path, method: :get) do %>
+  <%= text_field_tag 'query', '', placeholder: 'Search', class: 'form-control' %>
+<% end %>
+</p>
+
 <table class="table space-4">
   <thead>
     <tr>
