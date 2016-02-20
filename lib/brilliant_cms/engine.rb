@@ -6,5 +6,6 @@ module BrilliantCms
     require 'simple_form'
     require 'bootstrap-sass'
     require 'font-awesome-rails'
+    require 'icheck-rails'
   end
 end

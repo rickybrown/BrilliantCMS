@@ -1,4 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require_tree .
+//= require 'icheck'
+//= require ./vendor/load
+//= require_directory
