@@ -3,7 +3,7 @@ require_dependency "brilliant_cms/application_controller"
 module BrilliantCms
   class RegistrationsController < Devise::RegistrationsController
 
-    before_action :one_user_registered?
+    before_action :one_user_registered?, except: [:edit, :update]
 
     protected
 

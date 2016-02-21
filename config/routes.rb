@@ -12,9 +12,10 @@ BrilliantCms::Engine.routes.draw do
       registrations: 'brilliant_cms/registrations'
     },
     path: '', path_names: {
+      edit: 'settings',
       sign_up: 'start',
       sign_in: 'login',
-      sign_out: 'logout'
+      sign_out:'logout'
     }
 
   scope "/:content_class" do
