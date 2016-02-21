@@ -1,6 +1,6 @@
 <p>
-  <strong>Content class:</strong>
-  <%= @entry.type %>
+  <strong>Content type:</strong>
+  <%= tableize_type(@entry.type) %>
 </p>
 
 <p>
@@ -25,5 +25,4 @@
   <%= @entry.author_name %>
 </p>
 
-<%= link_to 'Edit', edit_content_entry_path(@entry) %> |
-<%= link_to 'Back', content_entries_path %>
+<%= link_to 'Edit', edit_content_entry_path(@entry) %>

@@ -22,8 +22,14 @@ module BrilliantCms
     helper_method :new_content_entry_path
 
     def edit_content_entry_path(entry)
-      edit_entry_path(entry, content_class: content_class.tableize)
+      content_class = tableize_type(entry.type)
+      edit_entry_path(entry, content_class: content_class)
     end
     helper_method :edit_content_entry_path
+
+    def tableize_type(entry)
+      entry.split(':').last.tableize
+    end
+    helper_method :tableize_type
   end
 end

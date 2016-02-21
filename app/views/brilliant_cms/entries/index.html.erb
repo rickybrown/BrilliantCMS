@@ -1,4 +1,4 @@
-<h1><%= blog? ? 'Blog' : content_class.tableize.titleize %></h1>
+<h1><%= blog? ? 'Blog Posts' : content_class.tableize.titleize %></h1>
 
 <div class="col-xs-6 no-pad">
   <% if blog? %>
@@ -27,7 +27,7 @@
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
-        <td><%= entry.type.to_s.split(':').last %><%= link_to entry.title, content_entry_path(entry) %></td>
+        <td><%= link_to entry.title, content_entry_path(entry) %></td>
         <td><%= time_ago_in_words entry.created_at %> ago</td>
         <td><%= entry.published_at.strftime('%b %e, %Y at %l:%M%P') %></td>
         <td><%= link_to fa_icon('edit', text: 'Edit'), edit_content_entry_path(entry) %></td>
