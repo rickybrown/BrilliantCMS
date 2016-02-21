@@ -20,7 +20,7 @@ Run the bundle command to install.
 Load migrations from BrilliantCMS
 
 ```console
-rake brilliant_cms:install:migrations && db:migrate
+rake brilliant_cms:install:migrations && rake db:migrate
 ```
 
 
@@ -47,7 +47,7 @@ end
 To create models in your rails app to use with/manage from the CMS engine, create the file:
 ```ruby
 # app/models/some_kind_of_post.rb
-class SomeKindOfPost < Wellspring::Entry
+class SomeKindOfPost < BrilliantCms::Entry
   searchable_attributes :title, :body
 
   content_attr :body, :text
@@ -66,4 +66,7 @@ end
 ```
 
 ## TODO
-A bunch of stuff. I'll update as much as I can, as soon as I can. Open to contributions
+Tests, and bunch of stuff. I'll update as much as I can, as soon as I can. Open to contributions
+
+## Screenshot
+![Alt text](screenshot.png?raw=true "Remote Tool")
