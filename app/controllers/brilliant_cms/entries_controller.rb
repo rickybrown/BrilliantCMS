@@ -5,19 +5,26 @@ module BrilliantCms
     before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
     def index
-      @entries = Entry.where(type: content_class)
+      if blog?
+        @entries = blog_posts_with_links.order('id desc')
+      else
+        @entries = Entry.where(type: module_class_string.constantize)
+      end
     end
 
     def search
-      @entries = Entry.where(type: content_class).search(params[:query])
+      @entries = Entry.where(type: module_class_string.constantize).search(params[:query])
       render action: 'index'
     end
 
     def show
+      if blog?
+        @entry = Entry.find_by_slug!(params[:slug])
+      end
     end
 
     def new
-      @entry = Entry.new(type: content_class)
+      @entry = Entry.new(type: module_class_string)
     end
 
     def edit
@@ -52,14 +59,27 @@ module BrilliantCms
       @entry = Entry.find(params[:id])
     end
 
+    def blog?
+      params[:content_class] == 'blog'
+    end
+    helper_method :blog?
+
+    def blog_posts_with_links
+      Entry.where(type: %w(BrilliantCms::BlogPost BrilliantCms::BlogLink))#.published
+    end
+
     def entry_params
       allowed_attrs = %i(id type title slug published_at)
-        .concat(content_class.constantize.content_attributes.keys)
+        .concat(module_class_string.constantize.content_attributes.keys)
 
       params.require(:entry).permit(*allowed_attrs)
     end
 
-    def content_class
+    def module_class_string
+      "BrilliantCms::#{content_class}"
+    end
+
+    def content_class 
       @content_class ||= params[:content_class].classify
     end
     helper_method :content_class

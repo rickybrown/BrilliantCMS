@@ -1,5 +1,7 @@
 module BrilliantCms
   class ApplicationController < ActionController::Base
+    helper FontAwesome::Rails::IconHelper
+    
     before_action :authenticate_user!
 
     protected
