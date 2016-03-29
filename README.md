@@ -1,6 +1,6 @@
 # BrilliantCMS
 
-The Goal: To create an easy CMS interface for Rails apps, and avoid having a thousand different database tables. To focus on designing an app without having to deal with content. The client can do that. I just want to code. But I dont want a full blown CMS, most apps I build just need a small taste of it but it still has to look pretty and fun. It's not meant to *invade* your rails project, just mainly requires that you use PostgreSQL. Are there other solutions? probably, I havn't really looked.
+The Goal: To create an easy CMS interface for Rails apps, using a Single Table Inheritance. The gem requires PostgreSQL. 
 
 ## Installation
 
@@ -66,7 +66,7 @@ end
 ```
 
 ## TODO
-Tests, and bunch of stuff. I'll update as much as I can, as soon as I can. Open to contributions
+Tests, and bunch of stuff. I'll update as much as I can, as soon as I can.
 
 ## Screenshot
 ![Alt text](screenshot.png?raw=true "Remote Tool")
